@@ -113,12 +113,15 @@ while True:
     elif cmd == 'history':
         print('\nGame history:')
         # displaying game history
-        for i, r in enumerate(history):
-            print(f'- Round #{i + 1}:')
+        for r in history:
             n = ', '.join(list(r.keys()))
             p = list(r.values())[0]
-            print(f'  • {p} pts -> {n}')
+            print(f'• {p} pts -> {n}')
         print()
+
+    elif cmd in ['undo', 'back']:
+        history.pop()
+        print('Undo successful!\n')
 
     elif cmd == 'new':
         # resets everything
