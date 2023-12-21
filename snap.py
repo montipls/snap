@@ -19,6 +19,7 @@ def get_points(nam: list, his: list) -> dict:
 
     return pts
 
+
 # global variables
 names = get_names()
 history = []
@@ -37,7 +38,7 @@ while True:
         for n, p in points.items():
             if p >= 21:
                 won = True
-                if not p in list(winners.keys()):
+                if p not in list(winners.keys()):
                     winners[p] = []
                 winners[p].append(n)
 
@@ -77,6 +78,9 @@ while True:
             history.append(result)
 
     # managing commands
+    elif cmd in ['quit', 'q', 'exit']:
+        exit()
+
     elif cmd == 'save':
         save_data = json.dumps({
             'names': names,
@@ -100,8 +104,9 @@ while True:
     elif cmd in ['points', 'pp', 'standings']:
         print('\nCurrent standings:')
         # displaying points
-        for i, n in enumerate(sorted(points)):
-            p = points[n]
+        sort = sorted(points.items(), key=lambda x: x[1], reverse=True)
+        for i, e in enumerate(sort):
+            n, p = e
             print(f'{"I"*(i+1)}. {n}: {p} pts')
         print()
 
