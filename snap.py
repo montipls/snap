@@ -116,7 +116,7 @@ while True:
         for r in history:
             n = ', '.join(list(r.keys()))
             p = list(r.values())[0]
-            print(f'• {p} pts -> {n}')
+            print(f'* {p} pts -> {n}')
         print()
 
     elif cmd in ['undo', 'back']:
