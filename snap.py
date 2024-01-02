@@ -130,3 +130,6 @@ while True:
         inform = True
         winners = {}
         won = False
+
+    elif cmd == '':
+        inform = True
