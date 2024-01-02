@@ -57,6 +57,7 @@ while True:
     cmd = input('... ')
     # skipping empty command
     if cmd == '':
+        inform = True
         continue
 
     # managing round results
@@ -130,6 +131,3 @@ while True:
         inform = True
         winners = {}
         won = False
-
-    elif cmd == '':
-        inform = True
